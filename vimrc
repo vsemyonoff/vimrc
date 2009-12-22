@@ -81,7 +81,7 @@ set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵
 "
 " UI options
 "
-"colorscheme current " color theme (use symlink 'current' in ~/.vim/colors)
+colorscheme current " color theme (use symlink 'current' in ~/.vim/colors)
 set mouse=a         " enable mouse
 set mousehide       " hide the mouse when typing text
 set ttyfast         " more smooth screen redrawing
