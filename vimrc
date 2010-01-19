@@ -7,7 +7,7 @@
 "
 set nocompatible            " use new style Vim options
 "set virtualedit=all         " let me seek behind the EOL
-set insertmode              " use insert mode by default
+"set insertmode              " use insert mode by default
 
 "
 " System options
