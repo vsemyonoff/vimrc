@@ -43,7 +43,7 @@ set encoding=utf-8          " default Vim encoding
 " Spell checker options
 "
 set spelllang=en,ru         " spell languages list
-set spell                   " enable spelling
+"set spell                   " enable spelling
 
 "
 " Search options
@@ -66,7 +66,7 @@ set showmatch               " When a bracket is inserted, briefly jump to the ma
 " Folding options
 "
 "set foldmethod=syntax
-"set foldenable
+set nofoldenable            " disable folding
 
 "
 " <Tab> options
