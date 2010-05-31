@@ -8,6 +8,7 @@
 set nocompatible            " use new style Vim options
 "set virtualedit=all         " let me seek behind the EOL
 "set insertmode              " use insert mode by default
+set viminfo='100,<50,s10,h,n~/.cache/viminfo
 
 "
 " System options
