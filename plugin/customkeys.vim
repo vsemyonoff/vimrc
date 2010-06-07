@@ -8,7 +8,7 @@ noremap     <f5>        <c-w>o
 vnoremap    <f5>        <c-c><c-w>o
 inoremap    <f5>        <c-o><c-w>o
 
-" Save/SaveAs
+" Save/Save As
 noremap     <c-s>       :if expand("%") == ""<bar>browse w<bar>else<bar>update<bar>endif<cr>
 vnoremap    <c-s>       <c-c>:if expand("%") == ""<bar>browse w<bar>else<bar>update<bar>endif<cr>
 inoremap    <c-s>       <c-o>:if expand("%") == ""<bar>browse w<bar>else<bar>update<bar>endif<cr>
@@ -38,11 +38,9 @@ inoremap    <c-f6>      <c-o>:bn<cr>
 noremap     <f11>       :cprev<cr>
 vnoremap    <f11>       <c-c>:cprev<cr>
 inoremap    <f11>       <c-o>:cprev<cr>
-noremap     <f12>       :cnext<cr>
-vnoremap    <f12>       <c-c>:cnext<cr>
-inoremap    <f12>       <c-o>:cnext<cr>
-" Unfold (zv), centrify (zz) and show compiler error message (:cc)
-"map <f12> :cnext<cr>zvzz:cc<cr>
+noremap     <f12>       :cnext<cr>zvzz:cc<cr>
+vnoremap    <f12>       <c-c>:cnext<cr>zvzz:cc<cr>
+inoremap    <f12>       <c-o>:cnext<cr>zvzz:cc<cr>
 
 " Show non-printable symbols
 noremap     <m-f12>     :set list!<cr>
@@ -57,22 +55,6 @@ noremap     <m-right>   <c-]>
 vnoremap    <m-right>   <c-c><c-]>
 inoremap    <m-right>   <c-o><c-]>
 
-" Open/Close fold
-map         <m-down>    zo
-vmap        <m-down>    <c-c><m-down>
-imap        <m-down>    <c-o><m-down>
-map         <m-up>      zc
-vmap        <m-up>      <c-c><m-up>
-imap        <m-up>      <c-o><m-up>
-
-" Open/Close ALL folds
-map         <c-down>    zR
-vmap        <c-down>    <c-c><m-down>
-imap        <c-down>    <c-o><m-down>
-map         <c-up>      zC
-vmap        <c-up>      <c-c><m-up>
-imap        <c-up>      <c-o><m-up>
-
 " Completion menu
 inoremap    <c-space>   <c-x><c-o>
 
@@ -80,9 +62,11 @@ inoremap    <c-space>   <c-x><c-o>
 inoremap    <m-x>       <c-o>:
 
 " Find/next match
-inoremap    <c-f>       <c-o>/
 inoremap    <f3>        <c-o>:set hlsearch<cr><c-o>n
 inoremap    <m-f3>      <c-o>:set hlsearch!<cr>
+inoremap    <c-f>       <c-o>/
+
+" Delete whole word
 inoremap    <c-bs>      <c-w>
 
 " Parens completion
@@ -94,3 +78,5 @@ imap        (           ()<left>
 vmap < <gv
 vmap > >gv
 
+" New line without comment leader
+imap <m-cr> <esc>o

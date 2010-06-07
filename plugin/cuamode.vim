@@ -2,7 +2,8 @@
 behave mswin
 
 " Backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+set backspace=indent,eol,start
+set whichwrap+=<,>,[,]
 
 " Backspace in Visual mode deletes selection
 vnoremap    <bs>        d
