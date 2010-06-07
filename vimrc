@@ -67,7 +67,6 @@ set smarttab                " emulate native tabs while indenting
 " UI options
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
-set lazyredraw              " less window redraws
 if has("gui")
     set guifont=Courier\ New\ 10
     colorscheme wombat256   " color theme
@@ -81,6 +80,7 @@ endif
 set showtabline=2           " always show tab line
 set laststatus=2            " always show status line
 set cmdheight=2             " increase command line height
+set lazyredraw              " less window redraws
 set ttyfast                 " more smooth screen redrawing
 set number                  " show line numbers
 
@@ -88,6 +88,7 @@ set number                  " show line numbers
 " Misc options
 "
 set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵
+set textwidth=120           " line length limit
 set novisualbell            " disable system blinking
 set linebreak               " wrap words, not letters
 set nowrap                  " disable wrapping

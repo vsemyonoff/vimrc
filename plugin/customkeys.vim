@@ -77,6 +77,3 @@ imap        (           ()<left>
 " Shift selection by </>
 vmap < <gv
 vmap > >gv
-
-" New line without comment leader
-imap <m-cr> <esc>o
