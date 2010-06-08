@@ -7,7 +7,7 @@
 "
 set nocompatible            " use new style Vim options
 set viminfo+=n$XDG_CACHE_HOME/viminfo " do not garbage home folder
-filetype plugin indent on   " enable auto detection of file types
+filetype plugin indent on   " enable file types auto detection
 set shortmess=atI           " truncate Vim's messages and disable startup screen
 set noshowcmd               " do not show last command in the status line
 set showmode                " show current mode in the status line
@@ -90,6 +90,7 @@ set number                  " show line numbers
 set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵
 set textwidth=120           " line length limit
 set novisualbell            " disable system blinking
+set autoindent              " enable simple indentation
 set linebreak               " wrap words, not letters
 set nowrap                  " disable wrapping
 set list                    " show non-printable symbols
