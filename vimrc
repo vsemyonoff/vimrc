@@ -37,7 +37,7 @@ set fileencodings=default,koi8-r " list of encodings to auto detect
 " Spell checker options
 "
 set spelllang=en,ru         " spell languages list
-set spell                   " enable spelling
+"set spell                   " enable spelling
 
 "
 " Search options
@@ -93,4 +93,4 @@ set novisualbell            " disable system blinking
 set autoindent              " enable simple indentation
 set linebreak               " wrap words, not letters
 set nowrap                  " disable wrapping
-set list                    " show non-printable symbols
+"set list                    " show non-printable symbols
