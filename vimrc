@@ -67,7 +67,7 @@ set smarttab                " emulate native tabs while indenting
 " UI options
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
-if has("gui")
+if has("gui_running")
     set guifont=Courier\ New\ 10
     colorscheme wombat256   " color theme
     set guioptions-=T       " hide tool bar
