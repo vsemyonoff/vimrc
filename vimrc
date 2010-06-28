@@ -68,7 +68,7 @@ set smarttab                " emulate native tabs while indenting
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
 if has("gui_running")
-    set guifont=Courier\ New\ 10
+    set guifont=Courier\ New\ 12
     colorscheme wombat256   " color theme
     set guioptions-=T       " hide tool bar
     set guicursor=a:blinkon0 " disable cursor blinking
