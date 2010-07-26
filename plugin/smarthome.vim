@@ -1,0 +1,1 @@
+../extension/smarthome.vim
