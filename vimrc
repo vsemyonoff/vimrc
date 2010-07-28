@@ -87,7 +87,7 @@ set number                  " show line numbers
 "
 " Misc options
 "
-set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵
+set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵,nbsp:▬
 set textwidth=120           " line length limit
 set novisualbell            " disable system blinking
 set autoindent              " enable simple indentation
