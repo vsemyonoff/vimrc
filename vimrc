@@ -8,9 +8,9 @@
 set nocompatible            " use new style Vim options
 set viminfo+=n$XDG_CACHE_HOME/viminfo " do not garbage home folder
 filetype plugin indent on   " enable file types auto detection
-set shortmess=atI           " truncate Vim's messages and disable startup screen
+set shortmess=I             " disable startup screen
+set noshowmode              " do not show current mode in the status line
 set noshowcmd               " do not show last command in the status line
-set showmode                " show current mode in the status line
 set hidden                  " do not save buffer while switching to another
 syntax on                   " enable syntax highlight by default
 
@@ -71,15 +71,16 @@ if has("gui_running")
     set guifont=Courier\ New\ 12
     colorscheme wombat256   " color theme
     set guioptions-=T       " hide tool bar
+    set guioptions-=m       " hide menu bar
     set guicursor=a:blinkon0 " disable cursor blinking
     set cursorline          " highlight current line
     set mousehide           " hide the mouse when typing text
     set noguipty            " external commands work through a pipe
     set mouse=a             " enable mouse
 endif
-set showtabline=2           " always show tab line
+set background=dark
 set laststatus=2            " always show status line
-set cmdheight=2             " increase command line height
+set cmdheight=1             " increase command line height
 set lazyredraw              " less window redraws
 set ttyfast                 " more smooth screen redrawing
 set number                  " show line numbers
