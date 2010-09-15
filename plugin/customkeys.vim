@@ -1,8 +1,3 @@
-" Next window
-noremap     <c-tab>     <c-w>w
-vnoremap    <c-tab>     <c-c><c-w>w
-inoremap    <c-tab>     <c-o><c-w>w
-
 " Maximize window
 noremap     <f5>        <c-w>o
 vnoremap    <f5>        <c-c><c-w>o
@@ -15,11 +10,6 @@ inoremap    <c-s>       <c-o>:if expand("%") == ""<bar>browse w<bar>else<bar>upd
 noremap     <m-s>       :browse saveas<cr>
 vnoremap    <m-s>       <c-c>:browse saveas<cr>
 inoremap    <m-s>       <c-o>:browse saveas<cr>
-
-" Load
-"noremap     <c-o>       :browse e<cr>
-"vnoremap    <c-o>       <c-c>:browse e<cr>
-"inoremap    <c-o>       <c-o>:browse e<cr>
 
 " Delete current buffer
 noremap     <c-f4>      :confirm bd<cr>
@@ -66,8 +56,13 @@ inoremap    <f3>        <c-o>:set hlsearch<cr><c-o>n
 inoremap    <m-f3>      <c-o>:set hlsearch!<cr>
 inoremap    <c-f>       <c-o>/
 
+" Move to next/prev word
+inoremap    <c-right>    <c-o>e<right>
+inoremap    <c-left>     <c-o>b
+
 " Delete whole word
 inoremap    <c-bs>      <c-w>
+cnoremap    <c-bs>      <c-w>
 
 " Parens completion
 imap        {           {}<left>
