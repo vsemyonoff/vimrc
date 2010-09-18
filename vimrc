@@ -68,11 +68,11 @@ set smarttab                " emulate native tabs while indenting
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
 set background=dark         " assume always dark background
-colorscheme wombat          " gui color theme
 set cursorline              " highlight current line
 if has("gui_running")
     set guifont=Courier\ New\ 12
     set guicursor=a:blinkon0 " disable cursor blinking
+    colorscheme wombat      " gui theme
     set guioptions-=T       " hide tool bar
     set guioptions-=m       " hide menu bar
     set guioptions-=l       " disable left scroll bar
@@ -81,6 +81,9 @@ if has("gui_running")
     set mousehide           " hide the mouse when typing text
     set noguipty            " external commands work through a pipe
     set mouse=a             " enable mouse
+else
+    set t_Co=256            " termimnal support 256 colors
+    colorscheme cwombat     " terminal theme
 endif
 set laststatus=2            " always show status line
 set lazyredraw              " less window redraws
