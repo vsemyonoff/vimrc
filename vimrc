@@ -81,9 +81,6 @@ if has("gui_running")
     set mousehide           " hide the mouse when typing text
     set noguipty            " external commands work through a pipe
     set mouse=a             " enable mouse
-else
-    set t_Co=256            " termimnal support 256 colors
-    colorscheme cwombat     " terminal theme
 endif
 set laststatus=2            " always show status line
 set lazyredraw              " less window redraws
