@@ -1,3 +1,36 @@
+" Use CTRL-Q to do what CTRL-V used to do
+noremap     <C-Q>       <C-V>
+
+" Cut
+vnoremap    <C-X>       "+x
+
+" Copy
+vnoremap    <C-C>       "+y
+
+" Paste line
+map         <C-V>       "+gP
+cmap        <C-V>       <C-R>+
+
+" Paste blocks
+exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+
+" Undo
+noremap     <C-Z>       u
+inoremap    <C-Z>       <C-O>u
+
+" Redo
+noremap     <S-C-Z>     <C-R>
+inoremap    <S-C-Z>     <C-O><C-R>
+
+" Select all
+noremap     <C-A>       gggH<C-O>G
+inoremap    <C-A>       <C-O>gg<C-O>gH<C-O>G
+cnoremap    <C-A>       <C-C>gggH<C-O>G
+onoremap    <C-A>       <C-C>gggH<C-O>G
+snoremap    <C-A>       <C-C>gggH<C-O>G
+xnoremap    <C-A>       <C-C>ggVG
+
 " Maximize window
 noremap     <f5>        <c-w>o
 vnoremap    <f5>        <c-c><c-w>o
@@ -48,9 +81,6 @@ inoremap    <m-right>   <c-o><c-]>
 " Completion menu
 inoremap    <c-space>   <c-x><c-o>
 
-" Command prompt
-inoremap    <m-x>       <c-o>:
-
 " Find/next match
 inoremap    <f3>        <c-o>:set hlsearch<cr><c-o>n
 inoremap    <m-f3>      <c-o>:set hlsearch!<cr>
@@ -70,5 +100,20 @@ imap        [           []<left>
 imap        (           ()<left>
 
 " Shift selection by </>
-vmap < <gv
-vmap > >gv
+vmap        <           <gv
+vmap        >           >gv
+
+" Indent with TAB
+map         <Tab>       i<Tab><Esc>^
+
+" Smart home key
+noremap     <expr><home>      (col('.') == matchend(getline('.'), '^\s*')+1 ? '0'  : '^')
+imap        <home>      <c-o><home>
+
+" Page Up/Down better behavior
+noremap     <pageup>    <c-u><c-u>
+vnoremap    <pageup>    <c-c><c-u><c-o><c-u>
+inoremap    <pageup>    <c-o><c-u><c-o><c-u>
+noremap     <pagedown>  <c-d><c-d>
+vnoremap    <pagedown>  <c-c><c-d><c-o><c-d>
+inoremap    <pagedown>  <c-o><c-d><c-o><c-d>

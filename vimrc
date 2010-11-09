@@ -8,9 +8,11 @@
 set nocompatible            " use new style Vim options
 set viminfo+=n$XDG_CACHE_HOME/viminfo " do not garbage home folder
 filetype plugin indent on   " enable file types auto detection
+set backspace=indent,eol,start " backspace wrap to prev/next line
+set whichwrap+=<,>,[,]      " cursor keys wrap to prev/next line
 set shortmess=I             " disable startup screen
-set noshowmode              " do not show current mode in the status line
-set noshowcmd               " do not show last command in the status line
+set showmode                " show current mode in the status line
+set showcmd                 " show last command in the status line
 set hidden                  " do not save buffer while switching to another
 syntax on                   " enable syntax highlight by default
 
@@ -37,7 +39,7 @@ set fileencodings=default,koi8-r " list of encodings to auto detect
 " Spell checker options
 "
 set spelllang=en,ru         " spell languages list
-"set spell                   " enable spelling
+set nospell                 " disable spell checker
 
 "
 " Search options
@@ -64,36 +66,67 @@ set expandtab               " use spaces instead of tabs
 set smarttab                " emulate native tabs while indenting
 
 "
+" Indent options
+"
+set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
+set cinoptions=:0,(0,u0,W1s
+set indentkeys=!<Tab>,o,O
+
+"
 " UI options
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
 set background=dark         " assume always dark background
+colorscheme wombat          " color theme
+set laststatus=2            " always show status line
 set cursorline              " highlight current line
+set lazyredraw              " less window redraws
+set ttyfast                 " more smooth screen redrawing
+set number                  " show line numbers
 if has("gui_running")
     set guifont=Courier\ New\ 12
     set guicursor=a:blinkon0 " disable cursor blinking
-    colorscheme wombat      " gui theme
     set guioptions-=T       " hide tool bar
     set guioptions-=m       " hide menu bar
     set guioptions-=l       " disable left scroll bar
     set guioptions-=r       " --//-- right
     set guioptions-=b       " --//-- bottom
+    set guioptions-=a       " disable autoselect
     set mousehide           " hide the mouse when typing text
-    set noguipty            " external commands work through a pipe
     set mouse=a             " enable mouse
+    set guipty              " use pseudo-tty instead of pipes in gui
 endif
-set laststatus=2            " always show status line
-set lazyredraw              " less window redraws
-set ttyfast                 " more smooth screen redrawing
-set number                  " show line numbers
 
 "
 " Misc options
 "
 set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵,nbsp:▬
-set textwidth=120           " line length limit
+set nofoldenable            " disable folding
+set textwidth=75            " line length limit
 set novisualbell            " disable system blinking
 set autoindent              " enable simple indentation
 set linebreak               " wrap words, not letters
 set nowrap                  " disable wrapping
-"set list                    " show non-printable symbols
+set nolist                  " hide non-printable symbols
+
+"
+" Autocommands
+"
+augroup tools
+    " restore buffer position on open
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+    " highlight trailing spaces and tabs
+    au BufNewFile,BufRead * let b:mtabs=matchadd('ErrorMsg', '\s\+$\|\t', -1)
+    " update headers before saving files
+    au BufWritePre,FileWritePre * silent call autoheader#writefile()
+    " insert headers for new files
+    au BufNewFile * silent call autoheader#newfile()
+    " disable matches in help buffers
+    au BufEnter,FileType help call clearmatches()
+    " cleanup trailing spaces before saving file
+    au BufWritePre * exe('%s/\s\+$//e')
+    " PDF -> text
+    au BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
+    " MS Word *.doc to text
+    au BufReadPost *.doc silent %!antiword "%"
+augroup END
