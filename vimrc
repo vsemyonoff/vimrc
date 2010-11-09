@@ -5,65 +5,65 @@
 "
 " System options
 "
-set nocompatible            " use new style Vim options
-set viminfo+=n$XDG_CACHE_HOME/viminfo " do not garbage home folder
-filetype plugin indent on   " enable file types auto detection
-set backspace=indent,eol,start " backspace wrap to prev/next line
-set whichwrap+=<,>,[,]      " cursor keys wrap to prev/next line
-set shortmess=I             " disable startup screen
-set showmode                " show current mode in the status line
-set showcmd                 " show last command in the status line
-set hidden                  " do not save buffer while switching to another
-syntax on                   " enable syntax highlight by default
+set nocompatible                        " use new style Vim options
+set viminfo+=n$XDG_CACHE_HOME/viminfo   " do not garbage home folder
+filetype plugin indent on               " enable file types auto detection
+set backspace=indent,eol,start          " backspace wrap to prev/next line
+set whichwrap+=<,>,[,]                  " cursor keys wrap to prev/next line
+set shortmess=I                         " disable startup screen
+set showmode                            " show current mode in the status line
+set showcmd                             " show last command in the status line
+set hidden                              " do not save buffer while switching to another
+syntax on                               " enable syntax highlight by default
 
 "
 " Backup options
 "
-set noswapfile              " disable swap files
-set nobackup                " disable backup files
+set noswapfile                          " disable swap files
+set nobackup                            " disable backup files
 
 "
 " Scrolling options
 "
-set scrolljump=1            " scroll by one line
-set sidescroll=5            " side scrolling border
-set scrolloff=5             " start text scrolling if 5 lines remains to top/bottom
+set scrolljump=1                        " scroll by one line
+set sidescroll=5                        " side scrolling border
+set scrolloff=5                         " start text scrolling if 5 lines remains to top/bottom
 
 "
 " Encoding options
 "
-set encoding=utf-8          " default Vim encoding
-set fileencodings=default,koi8-r " list of encodings to auto detect
+set encoding=utf-8                      " default Vim encoding
+set fileencodings=default,koi8-r        " list of encodings to auto detect
 
 "
 " Spell checker options
 "
-set spelllang=en,ru         " spell languages list
-set nospell                 " disable spell checker
+set spelllang=en,ru                     " spell languages list
+set nospell                             " disable spell checker
 
 "
 " Search options
 "
-set nohlsearch              " do not highlight search matches
-set ignorecase              " ignore case while searching
-set smartcase               " ignore case if 'pointer' and honor case if 'Pointer'
-set incsearch               " do incremental searching
-set wrapscan                " cyclic search
+set nohlsearch                          " do not highlight search matches
+set ignorecase                          " ignore case while searching
+set smartcase                           " ignore case if 'pointer' and honor case if 'Pointer'
+set incsearch                           " do incremental searching
+set wrapscan                            " cyclic search
 
 "
 " Paren options
 "
-set matchpairs=(:),{:},[:],<:>  " Matching pair characters
-set showmatch               " When a bracket is inserted, briefly jump to the matching one
+set matchpairs=(:),{:},[:],<:>          " Matching pair characters
+set showmatch                           " When a bracket is inserted, briefly jump to the matching one
 
 "
 " <Tab> options
 "
-set softtabstop=4           " emulate native tabs while deleting tabs
-set shiftwidth=4            " shift size
-set tabstop=4               " tab size
-set expandtab               " use spaces instead of tabs
-set smarttab                " emulate native tabs while indenting
+set softtabstop=4                       " emulate native tabs while deleting tabs
+set shiftwidth=4                        " shift size
+set tabstop=4                           " tab size
+set expandtab                           " use spaces instead of tabs
+set smarttab                            " emulate native tabs while indenting
 
 "
 " Indent options
@@ -76,57 +76,45 @@ set indentkeys=!<Tab>,o,O
 " UI options
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
-set background=dark         " assume always dark background
-colorscheme wombat          " color theme
-set laststatus=2            " always show status line
-set cursorline              " highlight current line
-set lazyredraw              " less window redraws
-set ttyfast                 " more smooth screen redrawing
-set number                  " show line numbers
+set background=dark                     " assume always dark background
+colorscheme wombat                      " color theme
+set laststatus=2                        " always show status line
+set cursorline                          " highlight current line
+set lazyredraw                          " less window redraws
+set ttyfast                             " more smooth screen redrawing
+set number                              " show line numbers
 if has("gui_running")
     set guifont=Courier\ New\ 12
-    set guicursor=a:blinkon0 " disable cursor blinking
-    set guioptions-=T       " hide tool bar
-    set guioptions-=m       " hide menu bar
-    set guioptions-=l       " disable left scroll bar
-    set guioptions-=r       " --//-- right
-    set guioptions-=b       " --//-- bottom
-    set guioptions-=a       " disable autoselect
-    set mousehide           " hide the mouse when typing text
-    set mouse=a             " enable mouse
-    set guipty              " use pseudo-tty instead of pipes in gui
+    set guicursor=a:blinkon0            " disable cursor blinking
+    set guioptions-=T                   " hide tool bar
+    set guioptions-=m                   " hide menu bar
+    set guioptions-=l                   " disable left scroll bar
+    set guioptions-=r                   " --//-- right
+    set guioptions-=b                   " --//-- bottom
+    set guioptions-=a                   " disable autoselect
+    set mousehide                       " hide the mouse when typing text
+    set mouse=a                         " enable mouse
+    set guipty                          " use pseudo-tty instead of pipes in gui
 endif
 
 "
 " Misc options
 "
 set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵,nbsp:▬
-set nofoldenable            " disable folding
-set textwidth=75            " line length limit
-set novisualbell            " disable system blinking
-set autoindent              " enable simple indentation
-set linebreak               " wrap words, not letters
-set nowrap                  " disable wrapping
-set nolist                  " hide non-printable symbols
+set nofoldenable                        " disable folding
+set textwidth=90                        " line length limit
+set novisualbell                        " disable system blinking
+set autoindent                          " enable simple indentation
+set linebreak                           " wrap words, not letters
+set nowrap                              " disable wrapping
+set nolist                              " hide non-printable symbols
 
 "
 " Autocommands
 "
-augroup tools
-    " restore buffer position on open
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-    " highlight trailing spaces and tabs
-    au BufNewFile,BufRead * let b:mtabs=matchadd('ErrorMsg', '\s\+$\|\t', -1)
-    " update headers before saving files
-    au BufWritePre,FileWritePre * silent call autoheader#writefile()
-    " insert headers for new files
-    au BufNewFile * silent call autoheader#newfile()
-    " disable matches in help buffers
-    au BufEnter,FileType help call clearmatches()
-    " cleanup trailing spaces before saving file
-    au BufWritePre * exe('%s/\s\+$//e')
-    " PDF -> text
-    au BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
-    " MS Word *.doc to text
-    au BufReadPost *.doc silent %!antiword "%"
-augroup END
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufNewFile,BufRead * let b:mtabs=matchadd('ErrorMsg', '\s\+$\|\t', -1)
+autocmd BufWritePre,FileWritePre * silent call autoheader#writefile()
+autocmd BufNewFile * silent call autoheader#newfile()
+autocmd BufEnter,FileType help call clearmatches()
+autocmd BufWritePre * exe('%s/\s\+$//e')
