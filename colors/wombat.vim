@@ -1,6 +1,6 @@
 " Maintainer:   Lars H. Nielsen (dengmao@gmail.com)
 " Last Change:  January 22 2007
-" Last Change:  November 08 2010 (cemeh4@yandex.ru)
+" Last Change:  December 16 2010 (cemeh4@yandex.ru)
 
 set background=dark
 
@@ -22,9 +22,9 @@ if version >= 700
 endif
 
 " General colors
-hi Cursor       guifg=#000000    guibg=#ffffff gui=none
-hi Normal       guifg=#f6f3e8 guibg=#242424 gui=none
-hi NonText      guifg=#808080 guibg=#242424 gui=none
+hi Cursor       guifg=#000000 guibg=#ffffff gui=none
+hi Normal       guifg=#f6f3e8 guibg=#161719 gui=none
+hi NonText      guifg=#808080 guibg=#161719 gui=none
 hi LineNr       guifg=#857b6f guibg=#000000 gui=none
 hi StatusLine   guifg=#f6f3e8 guibg=#444444 gui=bold
 hi StatusLineNC guifg=#857b6f guibg=#444444 gui=none

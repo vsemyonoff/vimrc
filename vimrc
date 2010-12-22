@@ -25,6 +25,7 @@ set nobackup                            " disable backup files
 "
 " Scrolling options
 "
+set virtualedit=all
 set scrolljump=1                        " scroll by one line
 set sidescroll=5                        " side scrolling border
 set scrolloff=5                         " start text scrolling if 5 lines remains to top/bottom
@@ -84,7 +85,7 @@ set lazyredraw                          " less window redraws
 set ttyfast                             " more smooth screen redrawing
 set number                              " show line numbers
 if has("gui_running")
-    set guifont=Courier\ New\ 12
+    set guifont=Terminus\ 10
     set guicursor=a:blinkon0            " disable cursor blinking
     set guioptions-=T                   " hide tool bar
     set guioptions-=m                   " hide menu bar
