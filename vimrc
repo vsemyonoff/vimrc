@@ -85,7 +85,7 @@ set lazyredraw                          " less window redraws
 set ttyfast                             " more smooth screen redrawing
 set number                              " show line numbers
 if has("gui_running")
-    set guifont=Terminus\ 10
+    set guifont=Monospace\ 10
     set guicursor=a:blinkon0            " disable cursor blinking
     set guioptions-=T                   " hide tool bar
     set guioptions-=m                   " hide menu bar
