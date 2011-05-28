@@ -122,4 +122,4 @@ autocmd BufWritePre * exe('%s/\s\+$//e')
 "
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-colorscheme wombat
+colorscheme wombat256
