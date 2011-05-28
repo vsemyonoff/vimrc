@@ -10,9 +10,10 @@ set complete+=t             " tags
 " Completion options
 "
 set completeopt=menuone,menu,longest
+let g:clang_auto_select = 1
 let g:clang_complete_auto = 0
 let g:clang_complete_copen = 0
-let g:clang_hl_errors = 1
+let g:clang_hl_errors = 0
 let g:clang_periodic_quickfix = 0
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'clang_complete'
@@ -22,13 +23,3 @@ let g:clang_use_library = has('python')
 "let g:clang_library_path = ''
 let g:clang_sort_algo = 'priority'
 let g:clang_debug = 0
-
-"
-" Completion menu bindings
-"
-"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
