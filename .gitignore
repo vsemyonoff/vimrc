@@ -1,4 +1,5 @@
-doc
-nerdtree_plugin
-plugin
+autoload
+bundle
 spell
+
+.netrwhist

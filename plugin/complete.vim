@@ -9,21 +9,19 @@ set complete+=t             " tags
 "
 " Completion options
 "
-" Clang based
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 1
-let g:clang_hl_errors = 1
-let g:clang_use_library = 1
-" Ctags based
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-" Common
 set completeopt=menuone,menu,longest
+let g:clang_complete_auto = 0
+let g:clang_complete_copen = 0
+let g:clang_hl_errors = 1
+let g:clang_periodic_quickfix = 0
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
+let g:clang_exec = 'clang'
+let g:clang_user_options = '|| exit 0'
+let g:clang_use_library = has('python')
+"let g:clang_library_path = ''
+let g:clang_sort_algo = 'priority'
+let g:clang_debug = 0
 
 "
 " Completion menu bindings

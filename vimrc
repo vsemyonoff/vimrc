@@ -115,7 +115,10 @@ set nolist                              " hide non-printable symbols
 "
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 autocmd BufNewFile,BufRead * let b:mtabs=matchadd('ErrorMsg', '\s\+$\|\t', -1)
-autocmd BufWritePre,FileWritePre * silent call autoheader#writefile()
-autocmd BufNewFile * silent call autoheader#newfile()
 autocmd BufEnter,FileType help call clearmatches()
 autocmd BufWritePre * exe('%s/\s\+$//e')
+
+"
+" Load plugins
+"
+call pathogen#runtime_append_all_bundles()
