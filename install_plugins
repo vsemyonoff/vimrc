@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+git_bundles = [
+  "git://github.com/Rip-Rip/clang_complete.git",
+  "git://github.com/msanders/snipmate.vim.git",
+]
+
+vim_org_scripts = [
+  ["glsl",      "https://github.com/vim-scripts/glsl.vim/raw/master/syntax/glsl.vim",   "syntax"],
+  ["wombat",    "http://files.werx.dk/wombat.vim",                                      "colors"],
+]
+
+require 'fileutils'
+require 'open-uri'
+
+puts "  Downloading 'pathogen' plugin..."
+pathogen = File.join(File.dirname(__FILE__), "autoload/pathogen.vim")
+FileUtils.rm_rf(pathogen)
+FileUtils.mkdir_p(File.dirname(pathogen))
+File.open(pathogen, "w") do |file|
+    file << open("https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim").read
+end
+
+bundles_dir = File.join(File.dirname(__FILE__), "bundle")
+
+FileUtils.cd(bundles_dir)
+
+puts "Trashing installed plugins..."
+Dir["*"].each {|d| FileUtils.rm_rf d }
+
+git_bundles.each do |url|
+  dir = url.split('/').last.sub(/\.git$/, '')
+  puts "  Unpacking #{url} into #{dir}..."
+  `git clone #{url} #{dir}`
+  FileUtils.rm_rf(File.join(dir, ".git"))
+end
+
+vim_org_scripts.each do |name, url, type|
+  puts "  Downloading #{name}..."
+  local_file = File.join(name, type, "#{name}.vim")
+  FileUtils.mkdir_p(File.dirname(local_file))
+  File.open(local_file, "w") do |file|
+    file << open("#{url}").read
+  end
+end

@@ -78,7 +78,6 @@ set indentkeys=!<Tab>,o,O
 "
 set statusline=%f\ %y\ format=%{&fileformat}\ encoding=%{&fileencoding}\ %r\ %3m%=%5l:%-5c\%10P
 set background=dark                     " assume always dark background
-colorscheme wombat                      " color theme
 set laststatus=2                        " always show status line
 set cursorline                          " highlight current line
 set lazyredraw                          " less window redraws
@@ -113,12 +112,14 @@ set nolist                              " hide non-printable symbols
 "
 " Autocommands
 "
+" Restore cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-autocmd BufNewFile,BufRead * let b:mtabs=matchadd('ErrorMsg', '\s\+$\|\t', -1)
-autocmd BufEnter,FileType help call clearmatches()
+" Remove trailing spaces
 autocmd BufWritePre * exe('%s/\s\+$//e')
 
 "
 " Load plugins
 "
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+colorscheme wombat
