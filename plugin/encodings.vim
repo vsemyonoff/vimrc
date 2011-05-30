@@ -1,4 +1,3 @@
-set wildmenu
 set wcm=<tab>
 
 " Change encoding

@@ -108,6 +108,8 @@ set autoindent                          " enable simple indentation
 set linebreak                           " wrap words, not letters
 set nowrap                              " disable wrapping
 set nolist                              " hide non-printable symbols
+set wildmode=longest,list,full          " complete as much as possible, then iterate
+set wildmenu                            " enable wild menu
 
 "
 " Autocommands
