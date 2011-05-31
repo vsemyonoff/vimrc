@@ -14,7 +14,6 @@ set shortmess=I                         " disable startup screen
 set showmode                            " show current mode in the status line
 set showcmd                             " show last command in the status line
 set hidden                              " do not save buffer while switching to another
-syntax on                               " enable syntax highlight by default
 
 "
 " Backup options
@@ -124,4 +123,12 @@ autocmd BufWritePre * exe('%s/\s\+$//e')
 "
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-colorscheme wombat256
+
+"
+" Enable syntax highlight
+"
+if &t_Co >= 256 || has("gui_running")
+    colorscheme wombat256mod            " set colortheme
+    syntax on                           " enable syntax highlight
+    let g:load_doxygen_syntax=1         " enable doxygen
+endif

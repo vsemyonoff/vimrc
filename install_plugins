@@ -6,8 +6,8 @@ git_bundles = [
 ]
 
 vim_org_scripts = [
-  ["glsl",      "https://github.com/vim-scripts/glsl.vim/raw/master/syntax/glsl.vim",   "syntax"],
-  ["wombat256", "http://www.vim.org/scripts/download_script.php?src_id=13400",          "colors"],
+  ["glsl",         "https://github.com/vim-scripts/glsl.vim/raw/master/syntax/glsl.vim",   "syntax"],
+  ["wombat256mod", "http://www.vim.org/scripts/download_script.php?src_id=13400",          "colors"],
 ]
 
 require 'fileutils'
