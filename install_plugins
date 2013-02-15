@@ -2,6 +2,7 @@
 
 git_bundles = [
   "git://github.com/msanders/snipmate.vim.git",
+  "git://github.com/Rip-Rip/clang_complete.git",
 ]
 
 vim_org_scripts = [
