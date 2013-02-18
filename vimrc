@@ -110,10 +110,6 @@ set nolist                              " hide non-printable symbols
 set wildmode=longest,list,full          " complete as much as possible, then iterate
 set wildmenu                            " enable wild menu
 
-" Clang completion
-let g:clang_debug=1
-let g:clang_use_library=1
-
 "
 " Autocommands
 "
