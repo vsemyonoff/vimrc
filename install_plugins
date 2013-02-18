@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
 
+require 'fileutils'
+require 'open-uri'
+
 git_bundles = [
-  "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/Rip-Rip/clang_complete.git",
+  "git://github.com/ervandew/supertab.git",
+  "git://github.com/msanders/snipmate.vim.git",
 ]
 
 vim_org_scripts = [
   ["glsl",         "https://github.com/vim-scripts/glsl.vim/raw/master/syntax/glsl.vim",   "syntax"],
   ["wombat256mod", "http://www.vim.org/scripts/download_script.php?src_id=13400",          "colors"],
 ]
-
-require 'fileutils'
-require 'open-uri'
 
 puts "  Downloading 'pathogen' plugin..."
 pathogen = File.join(File.dirname(__FILE__), "autoload/pathogen.vim")

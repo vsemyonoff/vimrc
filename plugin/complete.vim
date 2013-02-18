@@ -1,25 +1,11 @@
 "
 " Completion source settings
 "
-set complete+=.             " current buffer
-set complete+=k             " dictionary
-set complete+=b             " other bufs
-set complete+=t             " tags
+set completeopt=menu,menuone,longest
+"set complete+=.             " current buffer
+"set complete+=k             " dictionary
+"set complete+=b             " other bufs
+"set complete+=t             " tags
 
-"
-" Completion options
-"
-set completeopt=menuone,menu,longest
-let g:clang_auto_select = 1
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 0
-let g:clang_hl_errors = 1
-let g:clang_periodic_quickfix = 0
-"let g:clang_snippets = 1
-"let g:clang_snippets_engine = 'snipmate'
-"let g:clang_exec = 'clang'
-let g:clang_user_options = '|| exit 0'
-let g:clang_use_library = has('python')
-let g:clang_library_path = '/usr/lib'
-let g:clang_sort_algo = 'priority'
-let g:clang_debug = 0
+" Compltetion window height
+set pumheight=15
