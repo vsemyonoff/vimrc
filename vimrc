@@ -121,7 +121,7 @@ autocmd BufWritePre * exe('%s/\s\+$//e')
 "
 " Load plugins
 "
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 "

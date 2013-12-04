@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd bundle/ycm
+mkdir -p ycm_build
+cd ycm_build
+cmake -DEXTERNAL_LIBCLANG_PATH="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib" -G "Unix Makefiles" . ~/.vim/bundle/ycm/cpp
+make

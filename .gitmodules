@@ -1,0 +1,15 @@
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = got://github.com/SirVer/ultisnips
+[submodule "bundle/wombat256mod"]
+	path = bundle/wombat256mod
+	url = git://github.com/michalbachowski/vim-wombat256mod
+[submodule "bundle/glsl"]
+	path = bundle/glsl
+	url = git://github.com/vim-scripts/glsl.vim
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic
+[submodule "bundle/ycm"]
+	path = bundle/ycm
+	url = git://github.com/Valloric/YouCompleteMe
