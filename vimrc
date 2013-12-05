@@ -7,13 +7,13 @@
 "
 set nocompatible                        " use new style Vim options
 set viminfo+=n$XDG_CACHE_HOME/viminfo   " do not garbage home folder
-filetype plugin indent on               " enable file types auto detection
 set backspace=indent,eol,start          " backspace wrap to prev/next line
 set whichwrap+=<,>,[,]                  " cursor keys wrap to prev/next line
 set shortmess=I                         " disable startup screen
 set showmode                            " show current mode in the status line
 set showcmd                             " show last command in the status line
 set hidden                              " do not save buffer while switching to another
+filetype off
 
 "
 " Backup options
@@ -123,6 +123,8 @@ autocmd BufWritePre * exe('%s/\s\+$//e')
 "
 call pathogen#incubate()
 call pathogen#helptags()
+
+filetype plugin indent on               " enable file types auto detection
 
 "
 " Enable syntax highlight
