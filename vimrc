@@ -1,11 +1,15 @@
 "
-" Author: Vladyslav Semyonov <vsemyonoff@gmail.com>
+" Load plugins
 "
+set nocompatible                        " use new style Vim options
+filetype off                            " disable ft auto detection
+execute pathogen#infect()
+execute pathogen#helptags()
+filetype plugin indent on               " enable ft auto detection
 
 "
 " System options
 "
-set nocompatible                        " use new style Vim options
 set viminfo+=n$XDG_CACHE_HOME/viminfo   " do not garbage home folder
 set backspace=indent,eol,start          " backspace wrap to prev/next line
 set whichwrap+=<,>,[,]                  " cursor keys wrap to prev/next line
@@ -13,7 +17,6 @@ set shortmess=I                         " disable startup screen
 set showmode                            " show current mode in the status line
 set showcmd                             " show last command in the status line
 set hidden                              " do not save buffer while switching to another
-filetype off
 
 "
 " Backup options
@@ -53,8 +56,8 @@ set wrapscan                            " cyclic search
 "
 " Paren options
 "
-set matchpairs=(:),{:},[:],<:>          " Matching pair characters
-set showmatch                           " When a bracket is inserted, briefly jump to the matching one
+set matchpairs=(:),{:},[:],<:>          " matching pair characters
+set showmatch                           " when a bracket is inserted, briefly jump to the matching one
 
 "
 " <Tab> options
@@ -71,6 +74,8 @@ set smarttab                            " emulate native tabs while indenting
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set cinoptions=:0,(0,u0,W1s
 set indentkeys=!<Tab>,o,O
+set autoindent                          " enable simple indentation
+set cindent                             " c/c++ indentation
 
 "
 " UI options
@@ -103,7 +108,6 @@ set listchars=tab:▹▹,trail:·,extends:▸,precedes:◂,eol:↵,nbsp:▬
 set nofoldenable                        " disable folding
 set textwidth=90                        " line length limit
 set novisualbell                        " disable system blinking
-set autoindent                          " enable simple indentation
 set linebreak                           " wrap words, not letters
 set nowrap                              " disable wrapping
 set nolist                              " hide non-printable symbols
@@ -118,13 +122,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Remove trailing spaces
 autocmd BufWritePre * exe('%s/\s\+$//e')
 
-"
-" Load plugins
-"
-call pathogen#incubate()
-call pathogen#helptags()
-
-filetype plugin indent on               " enable file types auto detection
 
 "
 " Enable syntax highlight

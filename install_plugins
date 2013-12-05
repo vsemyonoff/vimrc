@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-rm -fr "autoload" && mkdir "autoload" && curl -o "autoload/pathogen.vim" -L "https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
-./update_plugins
-./install_ycm
+rm -fr "autoload" && mkdir "autoload" || exit 1
+curl -Sso "autoload/pathogen.vim" \
+    "https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim" || exit 1
+git submodule update --init --recursive
+$(pwd)/ycm_install

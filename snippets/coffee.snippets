@@ -1,90 +1,95 @@
-# From the TextMate bundle
-
-snippet fun "Function" b
-${1:name} = (${2:args}) ->
-	${0:# body...}
-endsnippet
-
-snippet bfun "Function (bound)" b
-${1:(${2:args}) }=>
-	${0:# body...}
-endsnippet
-
-snippet if "If" b
-if ${1:condition}
-	${0:# body...}
-endsnippet
-
-snippet ife "If .. Else" b
-if ${1:condition}
-	${2:# body...}
-else
-	${3:# body...}
-endsnippet
-
-snippet elif "Else if" b
-else if ${1:condition}
-	${0:# body...}
-endsnippet
-
-snippet ifte "Ternary if" b
-if ${1:condition} then ${2:value} else ${3:other}
-endsnippet
-
-snippet unl "Unless" b
-${1:action} unless ${2:condition}
-endsnippet
-
-snippet fora "Array Comprehension" b
-for ${1:name} in ${2:array}
-	${0:# body...}
-endsnippet
-
-snippet foro "Object Comprehension" b
-for ${1:key}, ${2:value} of ${3:Object}
-	${0:# body...}
-endsnippet
-
-snippet forr "Range Comprehension (inclusive)" b
-for ${1:name} in [${2:start}..${3:finish}]${4: by ${5:step}}
-	${0:# body...}
-endsnippet
-
-snippet forrex "Range Comprehension (exclusive)" b
-for ${1:name} in [${2:start}...${3:finish}]${4: by ${5:step}}
-	${0:# body...}
-endsnippet
-
-snippet swi "Switch" b
-switch ${1:object}
-	when ${2:value}
+# Closure loop
+snippet forindo
+	for ${1:name} in ${2:array}
+		do ($1) ->
+			${0:// body}
+# Array comprehension
+snippet fora
+	for ${1:name} in ${2:array}
 		${0:# body...}
-endsnippet
+# Object comprehension
+snippet foro
+	for ${1:key}, ${2:value} of ${3:object}
+		${0:# body...}
+# Range comprehension (inclusive)
+snippet forr
+	for ${1:name} in [${2:start}..${3:finish}]
+		${0:# body...}
+snippet forrb
+	for ${1:name} in [${2:start}..${3:finish}] by ${4:step}
+		${0:# body...}
+# Range comprehension (exclusive)
+snippet forrex
+	for ${1:name} in [${2:start}...${3:finish}]
+		${0:# body...}
+snippet forrexb
+	for ${1:name} in [${2:start}...${3:finish}] by ${4:step}
+		${0:# body...}
+# Function
+snippet fun
+	(${1:args}) ->
+		${0:# body...}
+# Function (bound)
+snippet bfun
+	(${1:args}) =>
+		${0:# body...}
+# Class
+snippet cla class ..
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		${0}
+snippet cla class .. constructor: ..
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		constructor: (${2:args}) ->
+			${3}
 
-snippet cla "Class" b
-class ${1:ClassName}${2: extends ${3:Ancestor}}
+		${0}
+snippet cla class .. extends ..
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} extends ${2:ParentClass}
+		${0}
+snippet cla class .. extends .. constructor: ..
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} extends ${2:ParentClass}
+		constructor: (${3:args}) ->
+			${4}
 
-	${4:constructor: (${5:args}) ->
-		${6:# body...}}
-	$7
-endsnippet
+		${0}
+# If
+snippet if
+	if ${1:condition}
+		${0:# body...}
+# If __ Else
+snippet ife
+	if ${1:condition}
+		${2:# body...}
+	else
+		${0:# body...}
+# Else if
+snippet eif
+	else if ${1:condition}
+		${0:# body...}
+# Ternary If
+snippet ifte
+	if ${1:condition} then ${2:value} else ${0:other}
+# Unless
+snippet unl
+	${1:action} unless ${0:condition}
+# Switch
+snippet swi
+	switch ${1:object}
+		when ${2:value}
+			${0:# body...}
 
-snippet try "Try .. Catch" b
-try
-	$1
-catch ${2:error}
-	$3
-endsnippet
-
-snippet req "Require" b
-${1/^'?(\w+)'?$/\L$1\E/} = require(${1:'${2:sys}'})
-endsnippet
-
-snippet # "Interpolated Code"
-#{$1}$0
-endsnippet
-
-snippet log "Log" b
-console.log ${1:"${2:msg}"}
-endsnippet
-
+# Log
+snippet log
+	console.log ${0}
+# Try __ Catch
+snippet try
+	try
+		${1}
+	catch ${2:error}
+		${0}
+# Require
+snippet req
+	${2:$1} = require '${1:sys}'
+# Export
+snippet exp
+	${0:root} = exports ? this

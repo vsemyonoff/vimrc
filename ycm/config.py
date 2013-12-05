@@ -8,13 +8,7 @@ flags = [
     '-std=c++11',
     '-stdlib=libc++',
     '-x', 'c++',
-    '-isystem', '/Library/Developer/CommandLineTools/usr/lib/c++/v1',
-    '-I', '.',
-    '-I', '..',
-    '-I', '../..',
-    '-I', 'include',
-    '-I', '../include',
-    '-I', '../../include'
+    '-isystem', '/Library/Developer/CommandLineTools/usr/lib/c++/v1'
 ]
 
 compilation_database_folder = ''

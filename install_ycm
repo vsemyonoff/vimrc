@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
-LIBCLANG="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+case $(uname -s) in
+    Darwin)
+        LIBCLANG="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+        NUMCORES=$(sysctl -n hw.ncpu)
+        ;;
+    Linux)
+        LIBCLANG="/usr/lib/libclang.so"
+        NUMCORES=$(grep -i 'processor' /proc/cpuinfo | wc -l)
+        ;;
+    *)
+        ;;
+esac
+
 rm -fr bundle/ycm/ycm_build && mkdir bundle/ycm/ycm_build || exit   1
 (cd bundle/ycm/ycm_build
 cmake -DEXTERNAL_LIBCLANG_PATH="${LIBCLANG}" -G "Unix Makefiles" "../cpp" || exit 1
-make -j$(sysctl -n hw.ncpu))
+make -j${NUMCORES})

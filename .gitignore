@@ -1,3 +1,3 @@
 autoload
 .netrwhist
-.ycm_global_conf.pyc
+*.pyc
