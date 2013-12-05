@@ -13,3 +13,9 @@
 [submodule "bundle/ycm"]
 	path = bundle/ycm
 	url = git://github.com/Valloric/YouCompleteMe
+[submodule "bundle/indent_guides"]
+	path = bundle/indent_guides
+	url = git://github.com/Valloric/vim-indent-guides
+[submodule "bundle/operator_highlight"]
+	path = bundle/operator_highlight
+	url = git://github.com/Valloric/vim-operator-highlight
