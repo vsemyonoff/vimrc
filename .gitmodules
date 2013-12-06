@@ -25,3 +25,6 @@
 [submodule "bundle/addon_mw_utils"]
 	path = bundle/addon_mw_utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = git://github.com/tpope/vim-pathogen

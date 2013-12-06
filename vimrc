@@ -3,8 +3,11 @@
 "
 set nocompatible                        " use new style Vim options
 filetype off                            " disable ft auto detection
+
+runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 execute pathogen#helptags()
+
 filetype plugin indent on               " enable ft auto detection
 
 "
